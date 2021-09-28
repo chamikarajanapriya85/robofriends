@@ -1,10 +1,10 @@
 import React from 'react';
 import Card from './Card';
-import robots from '.robots'
+//import {robots} from './robots'
 
 const CardList = ({robots}) => {
    		
-	rerutn(
+	return(
 		<div>
    	 		{
    	 			robots.map((user,i) => {
@@ -15,10 +15,10 @@ const CardList = ({robots}) => {
    					name ={robots[i].name} 
    					email={robots[i].email}
    					/>
-   			);
-    	});
+   			    );
+    	         })
    	 		}   			 
-   		</div>
+   	</div>
    	 	
 	);
 }
