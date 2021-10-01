@@ -16,7 +16,7 @@ class App extends Component{
 	}
 	componentDidMount(){
 		fetch('https://jsonplaceholder.typicode.com/users')
-			.then(response =>  return response.json())
+			.then(response => response.json())
 			.then(users => this.setState({robots:users}));
 		//console.log('componentDidMount');
 	}
@@ -29,7 +29,7 @@ class App extends Component{
 		const {robots,searchfield} = this.state
 		//destructuring the code
 		const filterRobots = robots.filter(robot => {
-			return robot.name.toLowerCase().includes(serachfield.toLowerCase());
+			return robot.name.toLowerCase().includes(searchfield.toLowerCase());
 		})
 		//console.log('render');
 		//robots.length === o equal to the !robots.length
@@ -41,7 +41,7 @@ class App extends Component{
 				<h1 className = 'f2'> Robo Friends </h1>
 				<SearchBox searchChange ={this.onSearchChange} />
 				<Scroll> 
-					<CardList robots={filterRobots} /> //insted of this.state.robots
+					<CardList robots={filterRobots} /> 
 				</Scroll>
 			</div>
 	 	);	
@@ -49,6 +49,7 @@ class App extends Component{
 	  
 	}
 }
+
 // const App = () => {
 // 	return(
 // 		<div className ='tc'>
