@@ -17,13 +17,8 @@ class App extends React.Component{
 	}
 	componentDidMount(){
 		fetch('https://jsonplaceholder.typicode.com/users')
-			.then(response => {
-			 return response.json()
-			})
-			.then(users => {
-				this.setState({robots:users});
-			})
-		
+			.then(response =>  return response.json())
+			.then(users => this.setState({robots:users}));
 		//console.log('componentDidMount');
 	}
 	onSearchChange=(event)=>{
@@ -37,14 +32,18 @@ class App extends React.Component{
 			return robots.name.toLowerCase().includes(this.state.serachfield.toLowerCase()
 		})
 		//console.log('render');
-	  return(
-		<div className ='tc'>
-			<h1 className = 'f2'> Robo Friends </h1>
-			<SearchBox searchChange ={this.onSearchChange} />
-			<CardList robots={filterRobots} /> //insted of this.state.robots
-
-		</div>
-	);	
+	  if (robots.length === 0){
+	  	return <h1> Loading </h1>;
+	  }else{
+	  	return(
+			<div className ='tc'>
+				<h1 className = 'f2'> Robo Friends </h1>
+				<SearchBox searchChange ={this.onSearchChange} />
+				<CardList robots={filterRobots} /> //insted of this.state.robots
+			</div>
+	 	);	
+	  }
+	  
 	}
 }
 // const App = () => {
