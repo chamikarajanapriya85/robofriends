@@ -1,13 +1,11 @@
 import React,{Component} from 'react';
 import CardList from '../components/CardList';
-import {robots} from './robots';
 import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
-import 'tachyons';
 import './App.css';
 
 
-class App extends React.Component{
+class App extends Component{
 	constructor(){
 		super()
 		this.state={
@@ -22,22 +20,21 @@ class App extends React.Component{
 			.then(users => this.setState({robots:users}));
 		//console.log('componentDidMount');
 	}
-	onSearchChange=(event)=>{
+	onSearchChange= (event) => {
 		this.setState({searchfield:event.target.value})
 		//console.log(event.target.value);
-		
-		})
-	}
+	 }
+	
 	render(){
 		const {robots,searchfield} = this.state
 		//destructuring the code
 		const filterRobots = robots.filter(robot => {
-			return robot.name.toLowerCase().includes(serachfield.toLowerCase()
+			return robot.name.toLowerCase().includes(serachfield.toLowerCase());
 		})
 		//console.log('render');
 		//robots.length === o equal to the !robots.length
 		//add ternary operator
-	   return !robots.length) ?
+	   return !robots.length ?
 	  	 <h1> Loading </h1>:
 	    (
 			<div className ='tc'>
@@ -63,3 +60,8 @@ class App extends React.Component{
 // 	);
 // }
 export default App;
+
+   
+    
+    
+   

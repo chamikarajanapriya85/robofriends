@@ -1,7 +1,7 @@
 import React from "react";
+import 'tachyons'
 
-
-const SearchBox = ({searchfield,searchChange}) => {
+const SearchBox = ({searchChange}) => {
 	return(
 		<div className = 'pa2'>
 			<input 
@@ -15,4 +15,3 @@ const SearchBox = ({searchfield,searchChange}) => {
 }
 
 export default SearchBox;
-
